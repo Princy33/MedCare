@@ -1,11 +1,12 @@
 import Image from "next/image"
 import Link from "next/link"
+
 // import * as Sentry from '@sentry/nextjs'
 import { Button } from "@/components/ui/button"
 import { Doctors } from "@/constants"
 import { getAppointment } from "@/lib/actions/appointment.actions"
-import { formatDateTime } from "@/lib/utils";
 import { getUser } from "@/lib/actions/patient.actions"
+import { formatDateTime } from "@/lib/utils";
 
 const RequestSuccess = async ({
   searchParams,
