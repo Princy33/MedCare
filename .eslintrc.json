@@ -25,7 +25,6 @@
           "caseInsensitive": true
         }
       }
-    ],
-    "no-unused-vars": "error"
+    ]
   }
 }
