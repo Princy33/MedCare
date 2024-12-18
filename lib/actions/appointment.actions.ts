@@ -1,19 +1,18 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
-import { ID, Query } from "node-appwrite";
+import { revalidatePath } from "next/cache"
+import { ID, Query } from "node-appwrite"
 
-import { Appointment } from "@/types/appwrite.types";
+import { Appointment } from "@/types/appwrite.types"
 
 import {
   APPOINTMENT_COLLECTION_ID,
   DATABASE_ID,
   databases,
   messaging,
-} from "../appwrite.config";
-import { formatDateTime, parseStringify } from "../utils";
+} from "../appwrite.config"
+import { formatDateTime, parseStringify } from "../utils"
 
-//  CREATE APPOINTMENT
 export const createAppointment = async (
   appointment: CreateAppointmentParams
 ) => {
@@ -31,8 +30,6 @@ export const createAppointment = async (
     console.error("An error occurred while creating a new appointment:", error);
   }
 };
-
-//  GET RECENT APPOINTMENTS
 export const getRecentAppointmentList = async () => {
   try {
     const appointments = await databases.listDocuments(
@@ -92,8 +89,6 @@ export const sendSMSNotification = async (userId: string, content: string) => {
     console.error("An error occurred while sending sms:", error);
   }
 };
-
-//  UPDATE APPOINTMENT
 export const updateAppointment = async ({
   appointmentId,
   userId,
@@ -102,7 +97,6 @@ export const updateAppointment = async ({
   type,
 }: UpdateAppointmentParams) => {
   try {
-    // Update appointment to scheduled -> https://appwrite.io/docs/references/cloud/server-nodejs/databases#updateDocument
     const updatedAppointment = await databases.updateDocument(
       DATABASE_ID!,
       APPOINTMENT_COLLECTION_ID!,
@@ -121,8 +115,6 @@ export const updateAppointment = async ({
     console.error("An error occurred while scheduling an appointment:", error);
   }
 };
-
-// GET APPOINTMENT
 export const getAppointment = async (appointmentId: string) => {
   try {
     const appointment = await databases.getDocument(

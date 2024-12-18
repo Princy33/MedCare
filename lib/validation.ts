@@ -10,7 +10,6 @@ export const UserFormValidation = z.object({
     .string()
     .refine((phone) => /^\+\d{10,15}$/.test(phone), "Invalid phone number"),
 });
-
 export const PatientFormValidation = z.object({
   name: z
     .string()
@@ -75,7 +74,6 @@ export const PatientFormValidation = z.object({
       message: "You must consent to privacy in order to proceed",
     }),
 });
-
 export const CreateAppointmentSchema = z.object({
   primaryPhysician: z.string().min(2, "Select at least one doctor"),
   schedule: z.coerce.date(),
