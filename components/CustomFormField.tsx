@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { E164Number } from "libphonenumber-js/core";
 import Image from "next/image";
 import ReactDatePicker from "react-datepicker";
@@ -23,7 +24,7 @@ export enum FormFieldType {
   CHECKBOX = "checkbox",
   DATE_PICKER = "datePicker",
   SELECT = "select",
-  SKELETON = "skeleton", // Keep if needed
+  SKELETON = "skeleton",
 }
 
 interface CustomProps {

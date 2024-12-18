@@ -1,36 +1,30 @@
 {
-  "plugins": ["import"],
-  "extends": [
-    "next/core-web-vitals",
-    "standard",
-    "plugin:tailwindcss/recommended",
-    "prettier"
-  ],
-  "rules": {
-    "no-undef": "off",
-    "no-unused-vars": [
-      "error",
-      {
-        "varsIgnorePattern": "FormFieldType"
-      }
+    "plugins": ["import"],
+    "extends": [
+      "next/core-web-vitals",
+      "standard",
+      "plugin:tailwindcss/recommended",
+      "prettier"
     ],
-    "import/order": [
-      "error",
-      {
-        "groups": [
-          "builtin",
-          "external",
-          "internal",
-          "parent",
-          "sibling",
-          "index"
-        ],
-        "newlines-between": "always",
-        "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": true
+    "rules": {
+      "no-undef": "off",
+      "import/order": [
+        "error",
+        {
+          "groups": [
+            "builtin",
+            "external",
+            "internal",
+            "parent",
+            "sibling",
+            "index"
+          ],
+          "newlines-between": "always",
+          "alphabetize": {
+            "order": "asc",
+            "caseInsensitive": true
+          }
         }
-      }
-    ]
+      ]
+    }
   }
-}
