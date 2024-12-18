@@ -8,6 +8,12 @@
   ],
   "rules": {
     "no-undef": "off",
+    "no-unused-vars": [
+      "error",
+      {
+        "varsIgnorePattern": "FormFieldType"
+      }
+    ],
     "import/order": [
       "error",
       {
