@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 import {
   AlertDialog,
@@ -35,35 +35,37 @@ export const PasskeyModal = () => {
   useEffect(() => {
     const accessKey = encryptedKey && decryptKey(encryptedKey);
 
-    if (path)
+    if (path) {
       if (accessKey === process.env.NEXT_PUBLIC_ADMIN_PASSKEY!.toString()) {
         setOpen(false);
         router.push("/admin");
       } else {
         setOpen(true);
       }
-  }, [encryptedKey]);
+    }
+  }, [encryptedKey, path, router]);
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setOpen(false);
     router.push("/");
-  };
+  }, [router]);
 
-  const validatePasskey = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
-    e.preventDefault();
+  const validatePasskey = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+      e.preventDefault();
 
-    if (passkey === process.env.NEXT_PUBLIC_ADMIN_PASSKEY) {
-      const encryptedKey = encryptKey(passkey);
+      if (passkey === process.env.NEXT_PUBLIC_ADMIN_PASSKEY) {
+        const encryptedKey = encryptKey(passkey);
 
-      localStorage.setItem("accessKey", encryptedKey);
+        localStorage.setItem("accessKey", encryptedKey);
 
-      setOpen(false);
-    } else {
-      setError("Invalid passkey. Please try again.");
-    }
-  };
+        setOpen(false);
+      } else {
+        setError("Invalid passkey. Please try again.");
+      }
+    },
+    [passkey]
+  );
 
   return (
     <AlertDialog open={open} onOpenChange={setOpen}>

@@ -1,11 +1,9 @@
-import Image from "next/image"
-import Link from "next/link"
+import Image from "next/image";
+import Link from "next/link";
 
-// import * as Sentry from '@sentry/nextjs'
-import { Button } from "@/components/ui/button"
-import { Doctors } from "@/constants"
-import { getAppointment } from "@/lib/actions/appointment.actions"
-import { getUser } from "@/lib/actions/patient.actions"
+import { Button } from "@/components/ui/button";
+import { Doctors } from "@/constants";
+import { getAppointment } from "@/lib/actions/appointment.actions";
 import { formatDateTime } from "@/lib/utils";
 
 const RequestSuccess = async ({
@@ -18,8 +16,7 @@ const RequestSuccess = async ({
   const doctor = Doctors.find(
     (doctor) => doctor.name === appointment.primaryPhysician
   );
-  const user = await getUser(userId);
-  // Sentry.metrics.set("user View",user.name);
+  
   return (
     <div className=" flex h-screen max-h-screen px-[5%]">
       <div className="success-img">
