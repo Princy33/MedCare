@@ -12,16 +12,12 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "MedCarefree",
-  description: "A healthcare patient management system...",
-  icons: {
-    icon: "/assets/icons/logo-full-32x32.svg", // Default icon
-    otherSizes: [
-      { src: "/assets/icons/logo-full-16x16.svg", sizes: "16x16" },
-      { src: "/assets/icons/logo-full-32x32.svg", sizes: "32x32" },
-      { src: "/assets/icons/logo-full.svg", sizes: "any" },
-    ],
-  } as unknown as Metadata["icons"], // Force typing if necessary
+  title: "MedCare",
+  description:
+  "A healthcare patient management System designed to streamline patient registration, appointment scheduling, and medical records management for healthcare providers.",
+icons: {
+  icon: "/assets/icons/logo-full.svg",
+},
 };
 
 
